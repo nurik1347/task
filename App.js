@@ -1,38 +1,60 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './Componient/HomeScreen';
-import PostScreen from './Componient/POstScreen';
-import DetailsScreen from './Componient/DetailsScreen';
-import Footer from './Componient/Footer';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import Home from './Componient/Home';
+import YukMashinalari from './Componient/YukMashinalari';
+import Sell from './Componient/Sell';
+import EhtiyotQismlari from './Componient/EhtiyotQismlari';
+import MaxsusTexnika from './Componient/MaxsusTexnika';
+import CategoryDetails from './Componient/Cars';
+import Tamirlash from './Componient/Tamirlash';
+import Title from './Componient/Title';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.mainContent}>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Post" component={PostScreen} />
-            <Stack.Screen name="Details" component={DetailsScreen} />
-          </Stack.Navigator>
-        </View>
-        <Footer />
-      </SafeAreaView>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+          name="Home" 
+          component={Home} 
+          options={{ title: 'Kategoriyalar' }} 
+        />
+        <Stack.Screen 
+          name="YukMashinalari" 
+          component={YukMashinalari} 
+          options={{ title: 'Yuk Mashinalari' }} 
+        />
+        <Stack.Screen 
+          name="Sell" 
+          component={Sell} 
+          options={{ title: 'Nima sotyapsiz?' }} 
+        />
+        <Stack.Screen 
+          name="EhtiyotQismlari" 
+          component={EhtiyotQismlari} 
+          options={{ title: 'Ehtiyot qismlari' }} 
+        />
+        <Stack.Screen 
+          name="MaxsusTexnika" 
+          component={MaxsusTexnika} 
+          options={{ title: 'Maxsus texnika' }} 
+        />
+        <Stack.Screen 
+          name="Tamirlash" 
+          component={Tamirlash} 
+          options={{ title: "Ta'mirlash va xizmatlar" }} 
+        />
+        <Stack.Screen 
+          name="Cars" 
+          component={CategoryDetails} 
+          options={{ title: 'Avtomobillar' }} 
+        />
+        <Stack.Screen name="Title" component={Title} options={{ title: 'Avtomobil maʼlumotlari' }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  mainContent: {
-    flex: 1,
-  },
-});
 
 export default App;
